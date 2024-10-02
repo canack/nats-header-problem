@@ -86,7 +86,7 @@ func startConsumer(js jetstream.JetStream) {
 	_, err = subscription.Consume(func(msg jetstream.Msg) {
 		fmt.Printf("Received message: %s, Publish Count: %s\n", msg.Data(), msg.Headers().Get("Publish-Count"))
 
-		// This line will cause a panic if the message has no initial headers
+		// This line will cause a panic after the first three messages
 		msg.Headers().Set("No-Panic", "true")
 
 		msg.Ack()
