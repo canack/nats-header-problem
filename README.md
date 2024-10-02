@@ -40,3 +40,5 @@ In NATS, messages can have headers for storing metadata. The issue occurs when a
 ## Solution
 
 To fix this issue, ensure that the consumer checks if the message contains headers before setting new ones. If not, initialize the header map to prevent a panic and maintain application stability.
+
+### The related PR : https://github.com/nats-io/nats.go/pull/1724
